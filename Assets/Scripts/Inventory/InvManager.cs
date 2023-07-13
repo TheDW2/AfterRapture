@@ -6,9 +6,10 @@ public class InvManager : MonoBehaviour
 {
     //This script manages the contents of the inventory.
     //Assign this script to an empty object
-    public static int onSlot = 1;
+    public static int onSlot = 0;
     public static List<int> inventory;
 
+    //Item ID that is being held
     public static int holding;
 
     public int amountOfSlots;
@@ -27,17 +28,17 @@ public class InvManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        holding = inventory[onSlot - 1];
+        holding = inventory[onSlot];
         if (Input.GetKeyDown("right")) {
-            if (onSlot == amountOfSlots) {
-                onSlot = 1;
+            if (onSlot == amountOfSlots - 1) {
+                onSlot = 0;
             } else  {
                 onSlot++;
             }
         }
         if (Input.GetKeyDown("left")) {
-            if (onSlot == 1) {
-                onSlot = amountOfSlots;
+            if (onSlot == 0) {
+                onSlot = amountOfSlots - 1;
             } else  {
                 onSlot--;
             }

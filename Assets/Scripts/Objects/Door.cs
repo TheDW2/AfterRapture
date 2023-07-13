@@ -26,7 +26,7 @@ public class Door : MonoBehaviour
             if (spriteRenderer.sprite == closed) {
                 transform.position = new Vector3(transform.position.x + offset, transform.position.y, transform.position.z);
                 spriteRenderer.sprite = open;
-                InvManager.inventory[InvManager.onSlot-1] = 0;
+                InvManager.inventory[InvManager.onSlot] = 0;
             }
         }
     }

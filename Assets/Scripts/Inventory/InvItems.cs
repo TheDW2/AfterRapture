@@ -15,6 +15,8 @@ public class InvItems : MonoBehaviour
     public Image itemImage;
     public CollectiblesList c;
     
+    GameObject index;
+    
 
     
 
@@ -35,7 +37,8 @@ public class InvItems : MonoBehaviour
             //Enable the image
             itemImage.enabled = true;
             //Change the sprite to the texture
-            itemImage.sprite = c.collectableItems[myTextureID];
+            index = c.collectableItems[myTextureID];
+            itemImage.sprite = index.GetComponent<SpriteRenderer>().sprite;
         } else {
             //Disable the image
             itemImage.enabled = false;

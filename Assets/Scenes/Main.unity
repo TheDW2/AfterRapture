@@ -394,6 +394,7 @@ GameObject:
   m_Component:
   - component: {fileID: 405406360}
   - component: {fileID: 405406361}
+  - component: {fileID: 405406362}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -414,7 +415,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 368678828}
-  - {fileID: 715808123}
   - {fileID: 1842302812}
   - {fileID: 1627948079}
   m_Father: {fileID: 1891248656}
@@ -438,6 +438,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountOfSlots: 6
+--- !u!114 &405406362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405406359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22f0e43ef5c79489da4c96a02482cade, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 519420028}
+  c: {fileID: 715808124}
+  gameObjects: {fileID: 1094993621}
 --- !u!1 &469836332
 GameObject:
   m_ObjectHideFlags: 0
@@ -1294,13 +1309,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 715808122}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalScale: {x: 0.017684534, y: 0.017684534, z: 0.017684534}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 405406360}
-  m_RootOrder: -1
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1321,8 +1336,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectableItems:
   - {fileID: 0}
-  - {fileID: 21300000, guid: 239f4f4c9ab31463a8a83813ea839585, type: 3}
-  - {fileID: 21300000, guid: 04d2f165ac55c4bdb86058a81f99d735, type: 3}
+  - {fileID: 2084095255885362021, guid: 99238a7e5de4843c7ac5bfaea31cff9d, type: 3}
+  - {fileID: 3768276406466820225, guid: d932f0bf0fc094ffb818f1faac9742ca, type: 3}
 --- !u!1 &1036682707
 GameObject:
   m_ObjectHideFlags: 0
@@ -1509,7 +1524,7 @@ Transform:
   - {fileID: 81958917}
   - {fileID: 290768002}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1097540461
 GameObject:

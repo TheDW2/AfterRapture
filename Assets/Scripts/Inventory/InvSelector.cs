@@ -14,6 +14,8 @@ public class InvSelector : MonoBehaviour
 
     public RectTransform rectTransform;
 
+    private int slot;
+
     float midpoint;
     
     void Start()
@@ -23,16 +25,16 @@ public class InvSelector : MonoBehaviour
 
     void Update()
     {
-        
+        slot = InvManager.onSlot + 1;
         //This 
         if (InvManager.amountOfSlotsStatic%2 == 0) {
             //if there are an even number of boxes in the inventory
             midpoint = ((float)InvManager.amountOfSlotsStatic / 2f)*distanceBewteenBoxes + distanceBewteenBoxes / 2f;
-            rectTransform.localPosition = new Vector3((float)InvManager.onSlot*distanceBewteenBoxes - midpoint, startingY, transform.position.z);
+            rectTransform.localPosition = new Vector3((float)slot*distanceBewteenBoxes - midpoint, startingY, transform.position.z);
         } else {
             //if there are an odd number of boxes in the inventory
             midpoint = (((float)InvManager.amountOfSlotsStatic+1) / 2f)*distanceBewteenBoxes;
-            rectTransform.localPosition = new Vector3((float)InvManager.onSlot*distanceBewteenBoxes - midpoint, startingY, transform.position.z);
+            rectTransform.localPosition = new Vector3((float)slot*distanceBewteenBoxes - midpoint, startingY, transform.position.z);
         }
     }
 

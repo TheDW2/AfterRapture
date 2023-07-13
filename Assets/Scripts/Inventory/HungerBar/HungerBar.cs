@@ -8,6 +8,8 @@ public class HungerBar : MonoBehaviour
     
     public Slider hungerBar;
 
+    
+
     //Use hungerBar.value to change hunger (0-20, 0 being starving and 20 being full)
     void Start() {
         hungerBar.value = 20;
@@ -19,8 +21,10 @@ public class HungerBar : MonoBehaviour
         if (InvManager.holding == 2 && Input.GetMouseButtonDown(1)) {
             if (hungerBar.value < 20) {
                 hungerBar.value += 2;
-                InvManager.inventory[InvManager.onSlot - 1] = 0;
+                InvManager.inventory[InvManager.onSlot] = 0;
             }
         }
+
+        
     }
 }

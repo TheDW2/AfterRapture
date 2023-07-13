@@ -9,5 +9,5 @@ public class CollectiblesList : MonoBehaviour
     //Edit the array to add textures
     
     //Always leave Texture 0 empty
-    public Sprite[] collectableItems;
+    public GameObject[] collectableItems;
 }

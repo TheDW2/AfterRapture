@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using TMPro;
 
 public class InvItems : MonoBehaviour
 {
@@ -14,6 +16,10 @@ public class InvItems : MonoBehaviour
 
     public Image itemImage;
     public CollectiblesList c;
+
+    public TextMeshProUGUI itemName;
+
+    public static int hoveringID = 0;
     
     GameObject index;
     
@@ -39,24 +45,38 @@ public class InvItems : MonoBehaviour
             //Change the sprite to the texture
             index = c.collectableItems[myTextureID];
             itemImage.sprite = index.GetComponent<SpriteRenderer>().sprite;
+            if (hoveringID == myID || InvSelector.hoveredBox == myID) {
+                itemName.text = index.name;
+            } else {
+                if (InvSelector.hoveredBox == 0 && hoveringID == 0) {
+                    itemName.text = "";
+                }
+            }
         } else {
             //Disable the image
             itemImage.enabled = false;
+            if (hoveringID == myID) {
+                itemName.text = "";
+            }
         }
 
         
+
+        
+
+        
         
     }
 
-    
-
-    void WhenUsed() {
-        //Do something
-
-
-        //Keep these three lines
-        InvSelector.clickedBox = 0;
-        itemImage.enabled = false;
-        InvManager.inventory[myID - 1] = 0;
+    //Show item name
+    public void PointerEnter() {
+        hoveringID = myID;
+    }   
+    public void PointerExit() {
+        if (hoveringID == myID) {
+            hoveringID = 0;
+        }
     }
+
+    
 }

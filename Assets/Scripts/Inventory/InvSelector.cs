@@ -10,7 +10,7 @@ public class InvSelector : MonoBehaviour
     public float startingY;
     public float distanceBewteenBoxes;
 
-    public static int clickedBox;
+    public static int hoveredBox;
 
     public RectTransform rectTransform;
 
@@ -36,6 +36,14 @@ public class InvSelector : MonoBehaviour
             midpoint = (((float)InvManager.amountOfSlotsStatic+1) / 2f)*distanceBewteenBoxes;
             rectTransform.localPosition = new Vector3((float)slot*distanceBewteenBoxes - midpoint, startingY, transform.position.z);
         }
+    }
+
+    public void Enter() {
+        hoveredBox = slot;
+    }
+
+    public void Exit() {
+        hoveredBox = 0;
     }
 
     

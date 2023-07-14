@@ -35,4 +35,13 @@ public class SaveManager : MonoBehaviour
             return null;
         }
     }
+
+    public static void deleteSaveSlot(int slotNumber)
+    {
+        if(File.Exists(save_folder + "/playerSave_" + slotNumber + ".json"))
+        {
+            File.Delete(save_folder + "/playerSave_" + slotNumber + ".json");
+        }
+    }
+    
 }

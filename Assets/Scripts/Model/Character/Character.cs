@@ -10,4 +10,5 @@ public class Character : ScriptableObject
     public string _characterDescription;
     public int _playerRelationshipPoint;
     public Sprite _characterSprite;
+    public List<CharacterStory> _characterStory;
 }

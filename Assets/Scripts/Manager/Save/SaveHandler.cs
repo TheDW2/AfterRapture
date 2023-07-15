@@ -25,7 +25,7 @@ public class SaveHandler : MonoBehaviour
         SaveManager.SaveProgress(jsonString, slotNumber);
     }
 
-    public SaveFile LoadSlot(SaveFile _file, int slotNumber)
+    public SaveFile LoadSlot(int slotNumber)
     {
          string contents = SaveManager.LoadProgress(slotNumber);
 

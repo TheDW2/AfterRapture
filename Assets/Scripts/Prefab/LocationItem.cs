@@ -1,18 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class LocationItem : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Image _locationSprite;
+    [SerializeField] private TextMeshProUGUI _locationName;
 
-    // Update is called once per frame
-    void Update()
+    public void Setup(Location _location)
     {
-        
+        _locationSprite.sprite = _location._mapIcon;
+        _locationName.text = _location._locationName;
     }
 }

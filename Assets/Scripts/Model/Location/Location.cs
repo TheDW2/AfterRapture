@@ -7,7 +7,7 @@ public enum TimeCycle
     Day, Night
 }
 
-public enum Action
+public enum LocationAction
 {
     Work, Food, Story
 }
@@ -16,12 +16,12 @@ public class Location : ScriptableObject
 {
     public int _locationId;
     public string _locationName;
-    public Action[] _actionCanBeDone;
+    public List<LocationAction> _actionCanBeDone;
     public string _locationDescription;
     public TimeCycle _locationTimeCycle;
     public Sprite _mapIcon;
     public GameObject _locationGameObject;
     public bool unlocked;
-    public Character [] _locationCharacters;
+    public List<Character> _locationCharacters;
     public Vector2 _positionOnMap;
 }

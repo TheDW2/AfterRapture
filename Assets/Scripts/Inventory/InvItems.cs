@@ -6,12 +6,22 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
+public static class Last {
+    public static string GetLast(this string source, int numberOfChars)
+    {
+        if(numberOfChars >= source.Length)
+            return source;
+        return source.Substring(source.Length - numberOfChars);
+    }
+}
+
 public class InvItems : MonoBehaviour
 {
     //Script for slot items inside inventory
-    char myIDchar;
     int myID;
     int myTextureID;
+
+    
 
 
     public Image itemImage;
@@ -27,15 +37,18 @@ public class InvItems : MonoBehaviour
     
 
     void Start() {
-        myIDchar = this.name[4];
-        myID = int.Parse(myIDchar.ToString());
+        myID = Int32.Parse(Last.GetLast(this.gameObject.name, this.gameObject.name.Length - 4));
         //What slot it is
     }
 
     void Update()
     {
         //What the slot will contain
-        myTextureID = InvManager.inventory[myID - 1];
+        if (InvManager.inventory[myID - 1]!= null) {
+            myTextureID = InvManager.inventory[myID - 1];
+        } else {
+
+        }
 
 
         //If the slot contains an item

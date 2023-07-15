@@ -28,6 +28,8 @@ public class InvManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Location l = ScriptableObject.CreateInstance<Location>();
+        
         holding = inventory[onSlot];
         if (Input.GetKeyDown("right")) {
             if (onSlot == amountOfSlots - 1) {
@@ -43,6 +45,8 @@ public class InvManager : MonoBehaviour
                 onSlot--;
             }
         }
+
+        
     }
 
     public static void AddItem(int item) {
@@ -53,4 +57,6 @@ public class InvManager : MonoBehaviour
             }
         }
     }
+
+    
 }

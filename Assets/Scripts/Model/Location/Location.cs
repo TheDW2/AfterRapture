@@ -9,7 +9,7 @@ public enum TimeCycle
 
 public enum LocationAction
 {
-    Work, Food, Story
+    Food, Item, Story
 }
  [CreateAssetMenu(fileName = "Locations", menuName = "ScriptableObjects/Location")]
 public class Location : ScriptableObject

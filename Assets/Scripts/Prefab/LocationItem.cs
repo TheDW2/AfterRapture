@@ -17,6 +17,25 @@ public class LocationItem : MonoBehaviour
     {
         _itemButton.onClick.AddListener(onClick);
         _locationSprite.sprite = _location._mapIcon;
-        _locationName.text = _location._locationName;
+        if(_location.unlocked)
+        {
+            _locationName.text = _location._locationName;
+        }
+
+        else
+        {
+            _locationName.text = "???";
+        }
+       
+    }
+
+    public void Showselected()
+    {
+        _circle.SetActive(true);
+    }
+
+    public void UnshowSelected()
+    {
+        _circle.SetActive(false);
     }
 }

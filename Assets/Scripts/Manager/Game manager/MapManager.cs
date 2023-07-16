@@ -123,13 +123,13 @@ public class MapManager : MonoBehaviour
             var obj = Instantiate(_actionItem, _actionItemPlacer).GetComponent<LocationActionIcon>();
             switch(_action)
             {
-                case LocationAction.Work:
-                obj.Setup(_locationActionIcons[0], "Working place");
+                case LocationAction.Food:
+                obj.Setup(_locationActionIcons[0], "Can Get Food");
 
                 break;
-                case LocationAction.Food:
-                obj.Setup(_locationActionIcons[1], "Food available");
 
+                case LocationAction.Item:
+                obj.Setup(_locationActionIcons[1], "Can Get Item");
                 break;
 
                 case LocationAction.Story:

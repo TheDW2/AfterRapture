@@ -26,9 +26,9 @@ public class InvItems : MonoBehaviour
 
 
     public Image itemImage;
-    public CollectiblesList c;
+    CollectiblesList c;
 
-    public TextMeshProUGUI itemName;
+    public static string itemName;
 
     public static int hoveringID = 0;
     
@@ -40,12 +40,16 @@ public class InvItems : MonoBehaviour
     
 
     void Start() {
+        c = GameObject.Find("CollectiblesList").GetComponent<CollectiblesList>();
+        
         myID = Int32.Parse(Last.GetLast(this.gameObject.name, this.gameObject.name.Length - 4));
         //What slot it is
     }
 
     void Update()
     {
+        
+        
         Location l = ScriptableObject.CreateInstance<Location>();
 
         //Turning IEnumerable<int> into List<int>
@@ -78,17 +82,17 @@ public class InvItems : MonoBehaviour
             index = c.collectableItems[myTextureID];
             itemImage.sprite = index.GetComponent<SpriteRenderer>().sprite;
             if (hoveringID == myID || InvSelector.hoveredBox == myID) {
-                itemName.text = index.name;
+                itemName = index.name;
             } else {
                 if (InvSelector.hoveredBox == 0 && hoveringID == 0) {
-                    itemName.text = "";
+                    itemName = "";
                 }
             }
         } else {
             //Disable the image
             itemImage.enabled = false;
             if (hoveringID == myID) {
-                itemName.text = "";
+                itemName = "";
             }
         }
 

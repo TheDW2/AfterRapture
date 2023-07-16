@@ -10,7 +10,7 @@ public class FoodManager : MonoBehaviour
 
     [SerializeField] private float flashtime = 0.5f;
 
-    public static int foodLeft = 30;
+    public static int foodLeft = 10;
     private bool noFoodLeft = false;
 
     float timer;

@@ -16,12 +16,7 @@ public class EventHandler : MonoBehaviour
     [SerializeField] private Button storage;
     [SerializeField] private GameObject storagePanel;
 
-    private static bool isStorageOpen = false;
-
-    [SerializeField] private Button statues;
-    [SerializeField] private GameObject statuesPanel;
-
-    private static bool isStatuesOpen = false;
+    public static bool isStorageOpen = false;
 
     //Kitchen
     [SerializeField] private GameObject kitchenOptions;
@@ -29,7 +24,7 @@ public class EventHandler : MonoBehaviour
     [SerializeField] private Button fridge;
     [SerializeField] private GameObject fridgePanel;
 
-    private static bool isFridgeOpen = false;
+    public static bool isFridgeOpen = false;
 
     //Bedroom
     [SerializeField] private GameObject bedroomOptions;
@@ -39,7 +34,7 @@ public class EventHandler : MonoBehaviour
     [SerializeField] private Button closet;
     [SerializeField] private GameObject closetPanel;
 
-    private static bool isClosetOpen = false;
+    public static bool isClosetOpen = false;
     
     
     // Start is called before the first frame update
@@ -50,7 +45,6 @@ public class EventHandler : MonoBehaviour
         bedroom.onClick.AddListener(Bedroom);
 
         storage.onClick.AddListener(Storage);
-        statues.onClick.AddListener(Statues);
 
         fridge.onClick.AddListener(Fridge);
 
@@ -73,10 +67,8 @@ public class EventHandler : MonoBehaviour
         kitchenOptions.SetActive(true);
         bedroomOptions.SetActive(false);
         isStorageOpen = false;
-        isStatuesOpen = false;
         isClosetOpen = false;
         storagePanel.SetActive(false);
-        statuesPanel.SetActive(false);
         closetPanel.SetActive(false);
     }
 
@@ -85,10 +77,8 @@ public class EventHandler : MonoBehaviour
         kitchenOptions.SetActive(false);
         bedroomOptions.SetActive(true);
         isStorageOpen = false;
-        isStatuesOpen = false;
         isFridgeOpen = false;
         storagePanel.SetActive(false);
-        statuesPanel.SetActive(false);
         fridgePanel.SetActive(false);
     }
 
@@ -96,43 +86,34 @@ public class EventHandler : MonoBehaviour
         isStorageOpen =!isStorageOpen;
         storagePanel.SetActive(isStorageOpen);
         if (isStorageOpen){
-            statuesPanel.SetActive(false);
             closetPanel.SetActive(false);
             fridgePanel.SetActive(false);
-            isStatuesOpen = false;
             isClosetOpen = false;
             isFridgeOpen = false;
         }
     }
 
-    private void Statues(){
-        isStatuesOpen =!isStatuesOpen;
-        statuesPanel.SetActive(isStatuesOpen);
-        if (isStatuesOpen){
-            storagePanel.SetActive(false);
-            closetPanel.SetActive(false);
-            fridgePanel.SetActive(false);
-            isStorageOpen = false;
-            isClosetOpen = false;
-            isFridgeOpen = false;
-        }
-    }
+    
 
     private void Fridge(){
         isFridgeOpen =!isFridgeOpen;
         fridgePanel.SetActive(isFridgeOpen);
         if (isFridgeOpen){
             storagePanel.SetActive(false);
-            statuesPanel.SetActive(false);
             closetPanel.SetActive(false);
             isStorageOpen = false;
-            isStatuesOpen = false;
             isClosetOpen = false;
         }
     }
 
     private void Bed(){
-        //If night time, then sleep and make it day
+        storagePanel.SetActive(false);
+        closetPanel.SetActive(false);
+        fridgePanel.SetActive(false);
+        isStorageOpen = false;
+        isFridgeOpen = false;
+        //If night time, then sleep and make it day (idk how to do that)
+        //Else, display a message saying that it's still day
     }
 
     private void Closet(){
@@ -140,10 +121,8 @@ public class EventHandler : MonoBehaviour
         closetPanel.SetActive(isClosetOpen);
         if (isClosetOpen){
             storagePanel.SetActive(false);
-            statuesPanel.SetActive(false);
             fridgePanel.SetActive(false);
             isStorageOpen = false;
-            isStatuesOpen = false;
             isFridgeOpen = false;
         }
     }

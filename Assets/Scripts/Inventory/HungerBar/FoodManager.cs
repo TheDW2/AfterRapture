@@ -10,7 +10,7 @@ public class FoodManager : MonoBehaviour
 
     [SerializeField] private float flashtime = 0.5f;
 
-    public static int foodLeft = 10;
+    public static int foodLeft = 30;
     private bool noFoodLeft = false;
 
     float timer;
@@ -46,8 +46,12 @@ public class FoodManager : MonoBehaviour
     public void TakeFood()
     {
         if (foodLeft > 0) {
-            foodLeft--;
-            InvManager.AddItem(2);
+            if (InvManager.inventory.Contains(0)) {
+                InvManager.AddItem(2);
+                foodLeft--;
+            } else {
+                Collectibles.invFull = true;
+            }
         } else {
             noFoodLeft = true;
         }

@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,7 +22,7 @@ public class InvItems : MonoBehaviour
     int myID;
     int myTextureID;
 
-    
+    bool hovering = false;
 
 
     public Image itemImage;
@@ -32,6 +33,8 @@ public class InvItems : MonoBehaviour
     public static int hoveringID = 0;
     
     GameObject index;
+
+    private List<int> hotbar, storage;
     
 
     
@@ -44,13 +47,22 @@ public class InvItems : MonoBehaviour
     void Update()
     {
         Location l = ScriptableObject.CreateInstance<Location>();
+
+        //Turning IEnumerable<int> into List<int>
+        var toconvert = InvManager.inventory.Take(InvManager.hotbarSizeStatic);
+        hotbar = toconvert.ToList();
+
+        var _toconvert = InvManager.inventory.Skip(InvManager.hotbarSizeStatic).Take(InvManager.amountOfSlotsStatic - InvManager.hotbarSizeStatic);
+        storage = _toconvert.ToList();
+
+
         //What the slot will contain
         
         
         
         //if outside of the apartment, then stop storing into the storage
         if (l._locationId != 0) {
-            if (myID > 6 && myTextureID == 0) {
+            if (myID > InvManager.hotbarSizeStatic && myTextureID == 0) {
                 InvManager.inventory[myID-1] = 0;
             }
         }
@@ -79,6 +91,42 @@ public class InvItems : MonoBehaviour
                 itemName.text = "";
             }
         }
+
+
+        
+        if (hovering) {
+            if (Input.GetMouseButtonDown(0)) {
+                if (myTextureID == 2 && EventHandler.isFridgeOpen) {
+                    //If clicked on and has food in it, store it back to the fridge.
+                    FoodManager.foodLeft++;
+                    myTextureID = 0;
+                    InvManager.inventory[myID - 1] = 0;
+                } else {
+                    
+                    if (myID > InvManager.hotbarSizeStatic) {
+                        if (hotbar.Contains(0)) {
+                            InvManager.AddItem(myTextureID);
+                            myTextureID = 0;
+                            InvManager.inventory[myID - 1] = 0;
+                        } else {
+                            Collectibles.invFull = true;
+                        }
+                    } else {
+                        if (myID <= InvManager.hotbarSizeStatic && EventHandler.isStorageOpen) {
+                            if (storage.Contains(0)) {
+                                InvManager.AddItemToStorage(myTextureID);
+                                myTextureID = 0;
+                                InvManager.inventory[myID - 1] = 0;
+                            } else {
+                                Collectibles.invFull = true;
+                            }
+                        }
+                    }
+                        
+
+                }
+            }
+        }
     }
 
         
@@ -92,11 +140,13 @@ public class InvItems : MonoBehaviour
     //Show item name
     public void PointerEnter() {
         hoveringID = myID;
+        hovering = true;
     }   
     public void PointerExit() {
         if (hoveringID == myID) {
             hoveringID = 0;
         }
+        hovering = false;
     }
 
     

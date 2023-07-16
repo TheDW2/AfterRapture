@@ -13,9 +13,11 @@ public class InvManager : MonoBehaviour
     public static int holding;
 
     public int amountOfSlots;
+    public int hotbarSize;
 
 
     public static int amountOfSlotsStatic;
+    public static int hotbarSizeStatic;
 
     void Start() {
         inventory = new List<int>();
@@ -23,6 +25,7 @@ public class InvManager : MonoBehaviour
             inventory.Add(0);
         }
         amountOfSlotsStatic = amountOfSlots;
+        hotbarSizeStatic = hotbarSize;
     }
 
     // Update is called once per frame
@@ -49,10 +52,19 @@ public class InvManager : MonoBehaviour
         
     }
 
-    public static void AddItem(int item) {
+    [SerializeField] public static void AddItem(int item) {
         for (int i = 0; i < amountOfSlotsStatic; i++) {
             if (inventory[i] == 0) {
                 inventory[i] = item;
+                return;
+            }
+        }
+    }
+
+    [SerializeField] public static void AddItemToStorage(int item) {
+        for (int i = 0; i < amountOfSlotsStatic - hotbarSizeStatic; i++) {
+            if (inventory[i + hotbarSizeStatic] == 0) {
+                inventory[i + hotbarSizeStatic] = item;
                 return;
             }
         }

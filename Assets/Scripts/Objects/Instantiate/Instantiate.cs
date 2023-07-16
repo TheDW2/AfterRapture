@@ -1,22 +1,50 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[CreateAssetMenu(fileName = "Instantiate", menuName = "ScriptableObjects/Instantiate")]
-public class Instantiate : ScriptableObject
-{
-    [SerializeField] private GameObject book;
-    [SerializeField] private GameObject box;
 
-    public void InstantiateBook()
+public class Instantiations : MonoBehaviour
+{
+    
+    //This script is for methods for eventTriggers
+
+    
+    [SerializeField] private Sprite closedBox, openBox;
+    private bool openedBox = false;
+
+    public void StayOpen()
     {
-        GameObject newBook = Instantiate(book, new Vector3(-53.1f, -12.6f, 0f), Quaternion.identity);
-        newBook.transform.parent = box.transform;
-        for (float i = 0; i < 2; i += Time.deltaTime) {
-            while (i <1.5) {
-                newBook.transform.position += new Vector3(0.2f, 0f, 0f);
+        if (!openedBox) {
+            openedBox = true;
+            if (this.gameObject.name == "Box") {
+                InvManager.AddItem(4);
+            }
+            if (this.gameObject.name == "Safe") {
+                InvManager.AddItem(1);
+            }
+            gameObject.GetComponent<Image>().sprite = openBox;
+        }
+    }
+
+
+
+    //------------------------------------------------------------------------------------------------
+    private static bool tv;
+    [SerializeField] private SpriteRenderer TV;
+    float timer = 0;
+    public void TVclicked(){
+        tv = true;
+    }
+    private void Update() {
+        if (tv) {
+            timer += Time.deltaTime;
+            if (timer > 1) {
+                tv = false;
+                timer = 0;
             }
         }
+        TV.enabled = tv;
     }
 }

@@ -28,7 +28,7 @@ public class InvManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Location l = ScriptableObject.CreateInstance<Location>();
+        
         
         holding = inventory[onSlot];
         if (Input.GetKeyDown("right")) {

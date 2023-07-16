@@ -43,12 +43,19 @@ public class InvItems : MonoBehaviour
 
     void Update()
     {
+        Location l = ScriptableObject.CreateInstance<Location>();
         //What the slot will contain
-        if (InvManager.inventory[myID - 1]!= null) {
-            myTextureID = InvManager.inventory[myID - 1];
-        } else {
-
+        
+        
+        
+        //if outside of the apartment, then stop storing into the storage
+        if (l._locationId != 0) {
+            if (myID > 6 && myTextureID == 0) {
+                InvManager.inventory[myID-1] = 0;
+            }
         }
+
+        myTextureID = InvManager.inventory[myID - 1];
 
 
         //If the slot contains an item
@@ -72,14 +79,15 @@ public class InvItems : MonoBehaviour
                 itemName.text = "";
             }
         }
-
-        
-
-        
-
-        
-        
     }
+
+        
+
+        
+
+        
+        
+    
 
     //Show item name
     public void PointerEnter() {

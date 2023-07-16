@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class HotBar : MonoBehaviour
 {
-    public Image image;
+    [SerializeField] private Image image;
     float timer;
-    public float flashtime = 0.5f;
+    [SerializeField] private float flashtime = 0.5f;
 
     //I need to know if there's a better way to do this XD
 

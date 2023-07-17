@@ -5,7 +5,7 @@ using UnityEngine;
 using TMPro;
 using System.IO;
 
-public class SaveManager : MonoBehaviour
+public static class SaveManager 
 {
     public static readonly string save_folder = Application.persistentDataPath + "/GameData/";
 

@@ -1,18 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
 public class LocationItem : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Button _itemButton;
+    [SerializeField] private Image _locationSprite;
+    [SerializeField] private TextMeshProUGUI _locationName;
+    [SerializeField] private GameObject _circle;
+
+    public void Setup(UnityAction onClick, Location _location)
     {
-        
+        _itemButton.onClick.AddListener(onClick);
+        _locationSprite.sprite = _location._mapIcon;
+        if(_location.unlocked)
+        {
+            _locationName.text = _location._locationName;
+        }
+
+        else
+        {
+            _locationName.text = "???";
+        }
+       
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Showselected()
     {
-        
+        _circle.SetActive(true);
+    }
+
+    public void UnshowSelected()
+    {
+        _circle.SetActive(false);
     }
 }

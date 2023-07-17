@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EventHandler : MonoBehaviour
+public class EventHandler0 : MonoBehaviour
 {
     
     [SerializeField] private Button livingRoom;

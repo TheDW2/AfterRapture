@@ -41,7 +41,7 @@ public class InvItems : MonoBehaviour
 
     void Start() {
         c = GameObject.Find("CollectiblesList").GetComponent<CollectiblesList>();
-        
+
         myID = Int32.Parse(Last.GetLast(this.gameObject.name, this.gameObject.name.Length - 4));
         //What slot it is
     }
@@ -100,7 +100,7 @@ public class InvItems : MonoBehaviour
         
         if (hovering) {
             if (Input.GetMouseButtonDown(0)) {
-                if (myTextureID == 2 && EventHandler.isFridgeOpen) {
+                if (myTextureID == 2 && EventHandler0.isFridgeOpen) {
                     //If clicked on and has food in it, store it back to the fridge.
                     FoodManager.foodLeft++;
                     myTextureID = 0;
@@ -116,7 +116,7 @@ public class InvItems : MonoBehaviour
                             Collectibles.invFull = true;
                         }
                     } else {
-                        if (myID <= InvManager.hotbarSizeStatic && EventHandler.isStorageOpen) {
+                        if (myID <= InvManager.hotbarSizeStatic && EventHandler0.isStorageOpen) {
                             if (storage.Contains(0)) {
                                 InvManager.AddItemToStorage(myTextureID);
                                 myTextureID = 0;

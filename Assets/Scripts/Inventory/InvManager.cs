@@ -13,11 +13,9 @@ public class InvManager : MonoBehaviour
     public static int holding;
 
     public int amountOfSlots;
-    public int hotbarSize;
 
 
     public static int amountOfSlotsStatic;
-    public static int hotbarSizeStatic;
 
     void Start() {
         inventory = new List<int>();
@@ -25,14 +23,11 @@ public class InvManager : MonoBehaviour
             inventory.Add(0);
         }
         amountOfSlotsStatic = amountOfSlots;
-        hotbarSizeStatic = hotbarSize;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        
         holding = inventory[onSlot];
         if (Input.GetKeyDown("right")) {
             if (onSlot == amountOfSlots - 1) {
@@ -48,11 +43,9 @@ public class InvManager : MonoBehaviour
                 onSlot--;
             }
         }
-
-        
     }
 
-    [SerializeField] public static void AddItem(int item) {
+    public static void AddItem(int item) {
         for (int i = 0; i < amountOfSlotsStatic; i++) {
             if (inventory[i] == 0) {
                 inventory[i] = item;
@@ -60,15 +53,4 @@ public class InvManager : MonoBehaviour
             }
         }
     }
-
-    [SerializeField] public static void AddItemToStorage(int item) {
-        for (int i = 0; i < amountOfSlotsStatic - hotbarSizeStatic; i++) {
-            if (inventory[i + hotbarSizeStatic] == 0) {
-                inventory[i + hotbarSizeStatic] = item;
-                return;
-            }
-        }
-    }
-
-    
 }

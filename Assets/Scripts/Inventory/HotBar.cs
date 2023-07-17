@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class HotBar : MonoBehaviour
 {
-    public Image image;
+    [SerializeField] private Image image;
     float timer;
-    public float flashime = 0.5f;
+    [SerializeField] private float flashtime = 0.5f;
 
     //I need to know if there's a better way to do this XD
 
@@ -16,13 +16,13 @@ public class HotBar : MonoBehaviour
     {
         if (Collectibles.invFull) {
             timer = timer + Time.deltaTime;
-            if (timer < flashime/4) {
+            if (timer < flashtime/4) {
                 image.color = new Color(120, 0, 0, 255);
             } else {
-                if (timer < flashime/2) {
+                if (timer < flashtime/2) {
                     image.color = new Color(255, 255, 255, 255);
                 } else {
-                    if (timer < flashime/1.5f) {
+                    if (timer < flashtime/1.5f) {
                         image.color = new Color(120, 0, 0, 255);
                     } else {
                         image.color = new Color(255, 255, 255, 255);

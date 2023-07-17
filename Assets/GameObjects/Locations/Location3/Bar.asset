@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5fb22c1f38364cf4bdc07cb9341179f, type: 3}
   m_Name: Bar
   m_EditorClassIdentifier: 
-  _locationId: 0
+  _locationId: 3
   _locationName: Bar
   _actionCanBeDone: 0000000002000000
   _locationDescription: A simple bar near down town area. Might know all the latest

@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 8977521913680124158}
   - component: {fileID: 1682875702084417980}
   m_Layer: 5
-  m_Name: Bar
+  m_Name: Baruch Height
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

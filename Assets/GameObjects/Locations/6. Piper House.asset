@@ -18,7 +18,7 @@ MonoBehaviour:
   _locationDescription: Piper's Family Residence
   _locationTimeCycle: 1
   _mapIcon: {fileID: 21300000, guid: 78ad7095a0ebb4d34a745ed30c9359ff, type: 3}
-  _locationGameObject: {fileID: 700735762346292360, guid: 4007a401befd447c3970634e4535be4a, type: 3}
+  _locationGameObject: {fileID: 700735762346292360, guid: 6d2de176226ab4ed2ba8f7b6f3672c75, type: 3}
   unlocked: 1
   _locationCharacters:
   - {fileID: 11400000, guid: 6acc8123392724a5ba8b3b9c3a3f5c61, type: 2}

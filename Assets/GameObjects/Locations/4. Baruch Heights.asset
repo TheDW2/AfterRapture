@@ -18,7 +18,7 @@ MonoBehaviour:
   _locationDescription: Baruch Heights
   _locationTimeCycle: 0
   _mapIcon: {fileID: 21300000, guid: 814b0cace62b54711941acc3132fb05d, type: 3}
-  _locationGameObject: {fileID: 700735762346292360, guid: 4a3d5ec96c6004bceb9ba8ff95789f80, type: 3}
+  _locationGameObject: {fileID: 700735762346292360, guid: 435a87d097f4748e799c8fc9e400944d, type: 3}
   unlocked: 0
   _locationCharacters:
   - {fileID: 11400000, guid: 97ba77acc187843609437737e0019c27, type: 2}

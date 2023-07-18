@@ -24,6 +24,8 @@ public class MapManager : MonoBehaviour
    [SerializeField] private List<Location> _locationList;
    [SerializeField] private RectTransform _locationPlacer;
     private List<LocationItem> _locationItemList;
+    private List<GameObject> _locationIconList;
+    private List<GameObject> _characterPotraitList;
 
     [Header("Location Detail")]
     [SerializeField] private Sprite[] _locationActionIcons;
@@ -73,6 +75,7 @@ public class MapManager : MonoBehaviour
         _dayText.text  = $"Day {_saveFile._playerSave.dayCount}";
         _hungerSlider.value = _saveFile._playerSave.hunger_bar;
         _energySlider.value = _saveFile._playerSave.energy_bar;
+        _locationItemList = new List<LocationItem>();
 
         switch(_currentTime)
         {
@@ -81,7 +84,7 @@ public class MapManager : MonoBehaviour
 
             for(int i=0; i< _locationList.Count;i++)
             {
-                if(_locationList[i]._locationTimeCycle == TimeCycle.Day)
+                if(_locationList[i]._locationTimeCycle == TimeCycle.Day || _locationList[i]._locationTimeCycle == TimeCycle.Both)
                 {
                     var obj = Instantiate(_locationItem, _locationPlacer).GetComponent<LocationItem>();
                     obj.gameObject.GetComponent<RectTransform>().anchoredPosition = _locationList[i]._positionOnMap;
@@ -98,7 +101,7 @@ public class MapManager : MonoBehaviour
 
             for(int i=0; i< _locationList.Count;i++)
             {
-                if(_locationList[i]._locationTimeCycle == TimeCycle.Night)
+                if(_locationList[i]._locationTimeCycle == TimeCycle.Night || _locationList[i]._locationTimeCycle == TimeCycle.Both)
                 {
                     var obj = Instantiate(_locationItem, _locationPlacer).GetComponent<LocationItem>();
                     obj.gameObject.GetComponent<RectTransform>().anchoredPosition = _locationList[i]._positionOnMap;
@@ -114,6 +117,28 @@ public class MapManager : MonoBehaviour
 
     private void ShowLocationDetail(Location loc)
     {
+
+        if(_locationIconList != null)
+        {
+            foreach(GameObject obj in _locationIconList)
+            {
+                Destroy(obj);
+            }
+        }
+       
+
+        _locationIconList = new List<GameObject>();
+
+        if(_characterPotraitList != null)
+        {
+             foreach(GameObject obj in _characterPotraitList)
+            {
+                Destroy(obj);
+            }
+        }
+       
+
+        _characterPotraitList = new List<GameObject>();
         _emptyLocationText.gameObject.SetActive(false);
         _locationTitle.text = loc._locationName;
         _locationDesc.text = loc._locationDescription;
@@ -125,6 +150,7 @@ public class MapManager : MonoBehaviour
             {
                 case LocationAction.Food:
                 obj.Setup(_locationActionIcons[0], "Can Get Food");
+               
 
                 break;
 
@@ -137,6 +163,8 @@ public class MapManager : MonoBehaviour
 
                 break;
             }
+
+             _locationIconList.Add(obj.gameObject);
         }
 
         foreach(Character _char in loc._locationCharacters)
@@ -150,6 +178,8 @@ public class MapManager : MonoBehaviour
             {
                 obj.Setup(_placeHolderPicture);
             }
+
+            _characterPotraitList.Add(obj.gameObject);
         }
         _goButton.onClick.AddListener(() => GoToLocation(loc._locationId));
 

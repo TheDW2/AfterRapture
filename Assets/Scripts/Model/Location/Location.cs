@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum TimeCycle
 {
-    Day, Night
+    Day, Night, Both
 }
 
 public enum LocationAction

@@ -7,7 +7,7 @@ using System.IO;
 
 public static class SaveManager 
 {
-    public static readonly string save_folder = Application.persistentDataPath + "/GameData/";
+    public static readonly string save_folder = Application.dataPath + "/GameData/";
 
     public static void Init()
     {

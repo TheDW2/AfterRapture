@@ -12,4 +12,5 @@ public class Player
    public int story_progress;
    public Inventory _inventory;
    public CharacterProgression _characterPlayerProgression;
+   public LocationProgression _locationProgression;
 }

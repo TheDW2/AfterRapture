@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ce71b8a076e6b44a8012e4cecadb489, type: 3}
-  m_Name: NPCTest
+  m_Script: {fileID: 11500000, guid: 823cab0c737e9314a99a7ae7683742c3, type: 3}
+  m_Name: GlobalVariables
   m_EditorClassIdentifier: 
-  dataBoolList: []
-  dataIntList: []
+  globalParameterListInt: []
+  globalParameterListBool: []

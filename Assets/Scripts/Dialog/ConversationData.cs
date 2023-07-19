@@ -6,6 +6,7 @@ public class ConversationData : ScriptableObject
 {
     public List<BuleanDataConversation> dataBoolList = new List<BuleanDataConversation>();
     public List<IntDataConversation> dataIntList = new List<IntDataConversation>();
+    public List<IntModifierClass> IntModifierClassList = new List<IntModifierClass>();
 }
 
 
@@ -22,3 +23,12 @@ public class IntDataConversation
     public string name;
     public int value;
 }
+
+[System.Serializable]
+public class IntModifierClass
+{
+    public int id;
+    public string name;
+    public int valueToBeAddedOrSubtracted;  
+}
+

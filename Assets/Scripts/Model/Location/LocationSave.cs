@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class CharacterProgression
+public class LocationSave
 {
-   public List<CharacterSave> _characterProgressions;
+    public int _locationId;
+    public bool unlocked;
 }

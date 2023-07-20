@@ -15,11 +15,11 @@ public class LocationItem : MonoBehaviour
 
     public void Setup(UnityAction onClick, Location _location)
     {
-        _itemButton.onClick.AddListener(onClick);
         _locationSprite.sprite = _location._mapIcon;
         if(_location.unlocked)
         {
             _locationName.text = _location._locationName;
+            _itemButton.onClick.AddListener(onClick);
         }
 
         else

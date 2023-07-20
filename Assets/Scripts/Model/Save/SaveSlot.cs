@@ -18,6 +18,9 @@ public class SaveSlot: MonoBehaviour
     [SerializeField] private TextMeshProUGUI _saveSlotNoSave;
     [SerializeField] private Button _deleteSlotBtn;
 
+    [SerializeField] private List<Location> _locationList;
+    [SerializeField] private List<Character> _characterList;
+
     private SaveFile _saveFile;
 
     void Start()
@@ -68,6 +71,39 @@ public class SaveSlot: MonoBehaviour
 
     private void CreateNewSaveFile()
     {
+
+        List<LocationSave> _locSave = new List<LocationSave>();
+
+        for(int j=0;j<_locationList.Count;j++)
+        {
+            LocationSave lc = new LocationSave
+            {
+                _locationId = _locationList[j]._locationId,
+                unlocked = _locationList[j].unlocked
+            };
+            _locSave.Add(lc);
+        }
+        LocationProgression _locProg = new LocationProgression
+        {
+            _locationProgressions = _locationList
+        };
+        List<CharacterSave> _charSave = new List<CharacterSave>();
+
+       for(int i=0;i<_characterList.Count;i++)
+       {
+             CharacterSave ch = new CharacterSave {
+                 id = _characterList[i]._characterId,
+                _playerRelationshipPoint = _characterList[i]._playerRelationshipPoint,
+                _hasMetPlayer = _characterList[i]._hasMetPlayer
+            };
+            _charSave.Add(ch);
+       }
+
+        CharacterProgression _charProg = new CharacterProgression
+        {
+            _characterProgressions = _charSave
+        };
+
         Player _newSave = new Player
         {
             dayCount = 1,
@@ -76,7 +112,8 @@ public class SaveSlot: MonoBehaviour
             energy_bar = 1,
             story_progress = 0,
             _inventory = null,
-            _characterPlayerProgression = null
+            _characterPlayerProgression = _charProg,
+            _locationProgression = _locProg
         };
 
         _saveFile = new SaveFile

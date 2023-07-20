@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5fb22c1f38364cf4bdc07cb9341179f, type: 3}
+  m_Name: 2. Bar
+  m_EditorClassIdentifier: 
+  _locationId: 2
+  _locationName: Bar
+  _actionCanBeDone: 000000000200000001000000
+  _locationDescription: Piper's Family Friendly Bar and Coffee Shop
+  _locationTimeCycle: 1
+  _mapIcon: {fileID: 21300000, guid: 594c7df75d3a2402f99d63a2e232d2c4, type: 3}
+  _locationGameObject: {fileID: 1233125391350150214, guid: ba861374cb5ff44d7b750c816d8870a5, type: 3}
+  unlocked: 0
+  _locationCharacters:
+  - {fileID: 11400000, guid: 6a28e2a18f66b4c0683551caea863afa, type: 2}
+  - {fileID: 11400000, guid: 42b79ef163d314dfa9c489749b2b3ee7, type: 2}
+  - {fileID: 11400000, guid: 51c33c52a85d54787b63bc1150db5427, type: 2}
+  - {fileID: 11400000, guid: 676d27a3a08ef4372bba251c665ea662, type: 2}
+  - {fileID: 11400000, guid: ee5c7b019066c476aa5c7975b9eb4858, type: 2}
+  - {fileID: 11400000, guid: c30d71b6873df401e849591af8682b7a, type: 2}
+  - {fileID: 11400000, guid: ff90f4c99559143acbacee2386c76cd7, type: 2}
+  _positionOnMap: {x: 100, y: 300}

@@ -35,6 +35,9 @@ public class EventHandler0 : MonoBehaviour
     [SerializeField] private GameObject closetPanel;
 
     public static bool isClosetOpen = false;
+
+    //SaveFile
+    private SaveFile _saveFile;
     
     
     // Start is called before the first frame update
@@ -112,8 +115,13 @@ public class EventHandler0 : MonoBehaviour
         fridgePanel.SetActive(false);
         isStorageOpen = false;
         isFridgeOpen = false;
-        //If night time, then sleep and make it day (idk how to do that)
-        //Else, display a message saying that it's still day
+        isClosetOpen = false;
+        
+        if (_saveFile._playerSave._timeCycle == TimeCycle.Night){
+            _saveFile._playerSave._timeCycle = TimeCycle.Day;
+        } else {
+            Debug.LogWarning("You cannot sleep during day");
+        }
     }
 
     private void Closet(){

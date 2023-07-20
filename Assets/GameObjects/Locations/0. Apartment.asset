@@ -18,7 +18,7 @@ MonoBehaviour:
   _locationDescription: Elijah's Apartment
   _locationTimeCycle: 0
   _mapIcon: {fileID: 21300000, guid: c62ebb11d45014c18bfd0a941c231bee, type: 3}
-  _locationGameObject: {fileID: 1233125391350150214, guid: d7d315199b81f4abaa025d6d41ff928e, type: 3}
+  _locationGameObject: {fileID: 4320107956530122229, guid: d7cccbbcd382c4797b98cd4b7ab695d7, type: 3}
   unlocked: 1
   _locationCharacters: []
-  _positionOnMap: {x: 200, y: 200}
+  _positionOnMap: {x: 0, y: 0}

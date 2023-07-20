@@ -18,10 +18,10 @@ public class HungerBar : MonoBehaviour
     //Right click to eat
     void Update()
     {
-        if (InvManager.holding == 2 && Input.GetMouseButtonDown(1)) {
+        if (InvItems.hoveringID == 2 && Input.GetMouseButtonDown(1)) {
             if (hungerBar.value < 20) {
                 hungerBar.value += 2;
-                InvManager.inventory[InvManager.onSlot] = 0;
+                InvManager.amountInventory[InvManager.onSlot]--;
             }
         }
 

@@ -10,17 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5fb22c1f38364cf4bdc07cb9341179f, type: 3}
-  m_Name: 1. Marcus House
+  m_Name: 0. Apartment
   m_EditorClassIdentifier: 
-  _locationId: 1
-  _locationName: Marcus's House
+  _locationId: 0
+  _locationName: Apartment
   _actionCanBeDone: 000000000100000002000000
-  _locationDescription: House
+  _locationDescription: Elijah's Apartment
   _locationTimeCycle: 0
   _mapIcon: {fileID: 21300000, guid: c62ebb11d45014c18bfd0a941c231bee, type: 3}
-  _locationGameObject: {fileID: 1233125391350150214, guid: cf8026e90ad72495998aeff9124ee70d, type: 3}
+  _locationGameObject: {fileID: 1233125391350150214, guid: d7d315199b81f4abaa025d6d41ff928e, type: 3}
   unlocked: 1
-  _locationCharacters:
-  - {fileID: 11400000, guid: fa6f50ba9e5dd4c31a9713fb308659cb, type: 2}
-  - {fileID: 11400000, guid: c30d71b6873df401e849591af8682b7a, type: 2}
+  _locationCharacters: []
   _positionOnMap: {x: 200, y: 200}

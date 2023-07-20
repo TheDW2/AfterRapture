@@ -931,6 +931,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 154a1b9c1afd44818b78927b7a621373, type: 2}
   - {fileID: 11400000, guid: 6da8d302843394af1958d4b90ab49655, type: 2}
   - {fileID: 11400000, guid: 1be2b42e08e0543469c528a2aba71dd9, type: 2}
+  - {fileID: 11400000, guid: f88eb77daeea846718eb3f9a79bd0ae1, type: 2}
   _locationPlacer: {fileID: 2126353363}
   _locationActionIcons:
   - {fileID: 21300000, guid: c56cfae535f6c46aca3ad02db4fe547b, type: 3}

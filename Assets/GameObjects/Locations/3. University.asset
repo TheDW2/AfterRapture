@@ -18,7 +18,7 @@ MonoBehaviour:
   _locationDescription: Elijah's University, there might be some clue here
   _locationTimeCycle: 2
   _mapIcon: {fileID: 21300000, guid: 7aeac7d5866d743f5accf3cd33ba03b3, type: 3}
-  _locationGameObject: {fileID: 700735762346292360, guid: 896af92add36e4b868121743b58dff61, type: 3}
+  _locationGameObject: {fileID: 1233125391350150214, guid: 31f904d98772349f38b1a2ac987d0348, type: 3}
   unlocked: 0
   _locationCharacters:
   - {fileID: 11400000, guid: c30d71b6873df401e849591af8682b7a, type: 2}

@@ -18,7 +18,7 @@ MonoBehaviour:
   _locationDescription: Piper's Family Friendly Bar and Coffee Shop
   _locationTimeCycle: 1
   _mapIcon: {fileID: 21300000, guid: 594c7df75d3a2402f99d63a2e232d2c4, type: 3}
-  _locationGameObject: {fileID: 700735762346292360, guid: 42b683801d7d74506b7cdea3cf0b1701, type: 3}
+  _locationGameObject: {fileID: 1233125391350150214, guid: ba861374cb5ff44d7b750c816d8870a5, type: 3}
   unlocked: 0
   _locationCharacters:
   - {fileID: 11400000, guid: 6a28e2a18f66b4c0683551caea863afa, type: 2}

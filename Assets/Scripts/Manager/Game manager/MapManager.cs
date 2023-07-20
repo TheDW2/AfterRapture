@@ -84,7 +84,7 @@ public class MapManager : MonoBehaviour
 
             for(int i=0; i< _locationList.Count;i++)
             {
-                if(_locationList[i]._locationTimeCycle == TimeCycle.Day || _locationList[i]._locationTimeCycle == TimeCycle.Both)
+                if((_locationList[i]._locationTimeCycle == TimeCycle.Day || _locationList[i]._locationTimeCycle == TimeCycle.Both) && _locationList[i].unlocked )
                 {
                     var obj = Instantiate(_locationItem, _locationPlacer).GetComponent<LocationItem>();
                     obj.gameObject.GetComponent<RectTransform>().anchoredPosition = _locationList[i]._positionOnMap;
@@ -101,7 +101,7 @@ public class MapManager : MonoBehaviour
 
             for(int i=0; i< _locationList.Count;i++)
             {
-                if(_locationList[i]._locationTimeCycle == TimeCycle.Night || _locationList[i]._locationTimeCycle == TimeCycle.Both)
+                if((_locationList[i]._locationTimeCycle == TimeCycle.Night || _locationList[i]._locationTimeCycle == TimeCycle.Both) && _locationList[i].unlocked)
                 {
                     var obj = Instantiate(_locationItem, _locationPlacer).GetComponent<LocationItem>();
                     obj.gameObject.GetComponent<RectTransform>().anchoredPosition = _locationList[i]._positionOnMap;

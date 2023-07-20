@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5fb22c1f38364cf4bdc07cb9341179f, type: 3}
+  m_Name: 5. Downtown
+  m_EditorClassIdentifier: 
+  _locationId: 5
+  _locationName: Downtown
+  _actionCanBeDone: 000000000100000002000000
+  _locationDescription: Busy at night, peaceful at day
+  _locationTimeCycle: 0
+  _mapIcon: {fileID: 21300000, guid: 2b975c052643e4e4daf043db3e600810, type: 3}
+  _locationGameObject: {fileID: 1233125391350150214, guid: 49370420195104cd18f91acff804801f, type: 3}
+  unlocked: 0
+  _locationCharacters:
+  - {fileID: 11400000, guid: 42b79ef163d314dfa9c489749b2b3ee7, type: 2}
+  - {fileID: 11400000, guid: 51c33c52a85d54787b63bc1150db5427, type: 2}
+  - {fileID: 11400000, guid: fa6f50ba9e5dd4c31a9713fb308659cb, type: 2}
+  - {fileID: 11400000, guid: 6a28e2a18f66b4c0683551caea863afa, type: 2}
+  _positionOnMap: {x: 200, y: -100}

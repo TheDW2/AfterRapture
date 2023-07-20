@@ -5,5 +5,5 @@ using UnityEngine;
 [System.Serializable]
 public class CharacterProgression
 {
-   public List<Character> _characterProgressions;
+   public List<CharacterSave> _characterProgressions;
 }

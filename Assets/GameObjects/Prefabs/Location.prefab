@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9cdb05ba4b6f4834824dbf413312f6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemButton: {fileID: 0}
+  _itemButton: {fileID: 1189781981978031818}
   _locationSprite: {fileID: 2230167377597316926}
   _locationName: {fileID: 6230362610341897780}
   _circle: {fileID: 6340700952637253056}
@@ -368,8 +368,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

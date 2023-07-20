@@ -16,7 +16,7 @@ MonoBehaviour:
   _locationName: Elijah's Apartment
   _actionCanBeDone: 
   _locationDescription: 
-  _locationTimeCycle: 0
+  _locationTimeCycle: 2
   _mapIcon: {fileID: 0}
   _locationGameObject: {fileID: 4320107956530122229, guid: d7cccbbcd382c4797b98cd4b7ab695d7, type: 3}
   unlocked: 1

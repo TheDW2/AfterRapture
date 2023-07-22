@@ -39,7 +39,6 @@ public class NPCStartDialog : MonoBehaviour
 
     public void SaveAll()
     {
-        Data.LoadConversationData();
         foreach (var param in nPCConversation.ParameterList)
         {
             if (param is EditableBoolParameter boolParameter)
@@ -118,14 +117,12 @@ public class NPCStartDialog : MonoBehaviour
 
         SaveHandler.instance.SaveSlot(_saveFile, PlayerPrefs.GetInt("current_slot_used"));
 
-
         GameManager.Instance.SaveGlobalVariables(Data);
-        Data.SaveConversationData();
+
     }
 
     public void IntegerModifier(int id)
     {
-        Data.LoadConversationData();
         foreach (var intModifier in Data.IntModifierClassList)
         {
             var existingParameter = GameManager.Instance.globalVariables.globalParameterListInt.Find(p => p.name == intModifier.name);
@@ -141,7 +138,6 @@ public class NPCStartDialog : MonoBehaviour
                 }
             }
         }
-        Data.SaveConversationData();
     }
 
 
@@ -150,7 +146,6 @@ public class NPCStartDialog : MonoBehaviour
     private void LoadInformation()
     {
         // Set all bool parameters
-        Data.LoadConversationData();
         foreach (var boolData in Data.dataBoolList)
         {
             if (nPCConversation.ParameterList.Any(p => p.ParameterName == boolData.name))

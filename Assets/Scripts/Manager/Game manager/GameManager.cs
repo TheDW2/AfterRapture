@@ -70,7 +70,6 @@ public class GameManager : MonoBehaviour
 
    public void SaveGlobalVariables(ConversationData nPCConversation)
     {
-        globalVariables.LoadConversationData();
         foreach (var boolParam in globalVariables.globalParameterListBool)
         {
             if (nPCConversation.dataBoolList.Any(p => p.name == boolParam.name))
@@ -86,13 +85,11 @@ public class GameManager : MonoBehaviour
                 intParam.value = ConversationManager.Instance.GetInt(intParam.name);
             }
         }
-        globalVariables.SaveConversationData();
     }
 
 
     public void LoadGlobalVariables(ConversationData nPCConversation)
     {
-        globalVariables.LoadConversationData();
         foreach (var boolParam in globalVariables.globalParameterListBool)
         {
             if (nPCConversation.dataBoolList.Any(p => p.name == boolParam.name))

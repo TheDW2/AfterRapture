@@ -878,6 +878,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 154a1b9c1afd44818b78927b7a621373, type: 2}
   - {fileID: 11400000, guid: 6da8d302843394af1958d4b90ab49655, type: 2}
   - {fileID: 11400000, guid: 1be2b42e08e0543469c528a2aba71dd9, type: 2}
+  globalVariables: {fileID: 11400000, guid: 1e12dcefa0cf1f2499ce416debc1d468, type: 2}
 --- !u!1 &1755052909
 GameObject:
   m_ObjectHideFlags: 0

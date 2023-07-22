@@ -11,6 +11,7 @@ public class Character : ScriptableObject
     public int _playerRelationshipPoint;
     public Sprite _characterSprite;
     public Sprite _characterPotrait;
+    public int _lastStoryId;
     public List<CharacterStory> _characterStory;
     public bool _hasMetPlayer;
 }

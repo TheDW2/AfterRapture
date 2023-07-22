@@ -6,6 +6,7 @@ using UnityEngine;
 public class CharacterSave
 {
    public int id;
+   public int _lastStoryId;
    public int _playerRelationshipPoint;
    public bool _hasMetPlayer;
 }

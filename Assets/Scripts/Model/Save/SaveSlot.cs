@@ -54,7 +54,14 @@ public class SaveSlot: MonoBehaviour
         if(_saveFile != null)
         {
             PlayerPrefs.SetInt("current_slot_used", id);
-            SceneManagerHandler.instance.LoadScene(2);
+            if(_saveFile._playerSave._hasPastPrologue)
+            {
+                SceneManagerHandler.instance.LoadScene(1);
+            }
+            else
+            {
+                SceneManagerHandler.instance.LoadScene(2);
+            }
         }
 
         else
@@ -113,7 +120,8 @@ public class SaveSlot: MonoBehaviour
             story_progress = 0,
             _inventory = null,
             _characterPlayerProgression = _charProg,
-            _locationProgression = _locProg
+            _locationProgression = _locProg,
+            _hasPastPrologue = false
         };
 
         _saveFile = new SaveFile

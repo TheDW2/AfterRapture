@@ -1,3 +1,4 @@
+using System;
 using UnityEditor;
 using UnityEngine;
 using System.Collections.Generic;
@@ -7,15 +8,20 @@ public class ConversationDataEdit : Editor
 {
     private SerializedProperty dataBoolListProperty;
     private SerializedProperty dataIntListProperty;
+    private ConversationData Data;
 
     private void OnEnable()
     {
         dataBoolListProperty = serializedObject.FindProperty("dataBoolList");
         dataIntListProperty = serializedObject.FindProperty("dataIntList");
+
+        Data = (ConversationData)target;
+        Data.LoadConversationData();
     }
 
     public override void OnInspectorGUI()
     {
+
         serializedObject.Update();
 
         EditorGUILayout.PropertyField(dataBoolListProperty, true);
@@ -29,6 +35,7 @@ public class ConversationDataEdit : Editor
             if (confirm)
             {
                 dataBoolListProperty.ClearArray();
+                Data.SaveConversationData();
             }
         }
 
@@ -38,6 +45,7 @@ public class ConversationDataEdit : Editor
             if (confirm)
             {
                 dataIntListProperty.ClearArray();
+                Data.SaveConversationData();
             }
         }
 
@@ -47,6 +55,11 @@ public class ConversationDataEdit : Editor
         if (GUILayout.Button("Open IntModifier"))
         {
             IntModifierWindow.ShowWindow((ConversationData)target);
+        }
+
+        if(GUILayout.Button("SaveChanges"))
+        {
+            Data.SaveConversationData();
         }
 
         serializedObject.ApplyModifiedProperties();
@@ -62,6 +75,7 @@ public class IntModifierWindow : EditorWindow
     {
         IntModifierWindow window = GetWindow<IntModifierWindow>("IntModifier");
         window.minSize = new Vector2(200, 200);
+        data.LoadConversationData();
         window.conversationData = data;
     }
 
@@ -82,7 +96,7 @@ public class IntModifierWindow : EditorWindow
                 EditorGUILayout.BeginHorizontal();
 
                 GUILayout.Label("ID", GUILayout.Width(20));
-                intModifier.id = i; // Asignar automáticamente el ID basado en la posición en la lista
+                intModifier.id = i;
                 GUILayout.Label(i.ToString(), GUILayout.Width(20));
 
                 EditorGUILayout.LabelField("Name", GUILayout.Width(50));
@@ -104,18 +118,20 @@ public class IntModifierWindow : EditorWindow
                 if (GUILayout.Button("Delete", redButtonStyle, GUILayout.Width(60)))
                 {
                     DeleteIntModifierClass(i);
+                    conversationData.SaveConversationData();
                 }
 
                 EditorGUILayout.EndHorizontal();
 
                 EditorGUILayout.EndVertical();
 
-                GUILayout.Space(10); // Agregar un espacio de 10 píxeles entre cada fila
+                GUILayout.Space(10);
             }
 
             if (GUILayout.Button("Add Class"))
             {
                 AddNewIntModifierClass();
+                conversationData.SaveConversationData();
             }
 
             EditorGUILayout.EndScrollView();
@@ -126,10 +142,14 @@ public class IntModifierWindow : EditorWindow
     {
         IntModifierClass newIntModifier = new IntModifierClass();
         conversationData.IntModifierClassList.Add(newIntModifier);
+        
+        conversationData.SaveConversationData();
     }
 
     private void DeleteIntModifierClass(int index)
     {
         conversationData.IntModifierClassList.RemoveAt(index);
+
+        conversationData.SaveConversationData();
     }
 }

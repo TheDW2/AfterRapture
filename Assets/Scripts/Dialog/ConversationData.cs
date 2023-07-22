@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewDataContainer", menuName = "ConversationData/Data")]
-public class ConversationData : ScriptableObject
+public class ConversationData : PersistentScriptableObject
 {
     public List<BuleanDataConversation> dataBoolList = new List<BuleanDataConversation>();
     public List<IntDataConversation> dataIntList = new List<IntDataConversation>();

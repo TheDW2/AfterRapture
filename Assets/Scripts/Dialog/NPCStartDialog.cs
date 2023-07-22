@@ -17,7 +17,7 @@ public class NPCStartDialog : MonoBehaviour
             {
                 ConversationManager.Instance.StartConversation(nPCConversation);
                 LoadInformation();
-                VariableManager.Instance.LoadGlobalVariables(Data);
+                GameManager.Instance.LoadGlobalVariables(Data);
             }
         }
     }
@@ -26,6 +26,7 @@ public class NPCStartDialog : MonoBehaviour
 
     public void SaveAll()
     {
+        Data.LoadConversationData();
         foreach (var param in nPCConversation.ParameterList)
         {
             if (param is EditableBoolParameter boolParameter)
@@ -59,15 +60,17 @@ public class NPCStartDialog : MonoBehaviour
                 }
             }
         }
-
-        VariableManager.Instance.SaveGlobalVariables(Data);
+    
+        GameManager.Instance.SaveGlobalVariables(Data);
+        Data.SaveConversationData();
     }
 
     public void IntegerModifier(int id)
     {
+        Data.LoadConversationData();
         foreach (var intModifier in Data.IntModifierClassList)
         {
-            var existingParameter = VariableManager.Instance.globalVariables.globalParameterListInt.Find(p => p.name == intModifier.name);
+            var existingParameter = GameManager.Instance.globalVariables.globalParameterListInt.Find(p => p.name == intModifier.name);
             if (id == intModifier.id)
             {
                 if (existingParameter != null)
@@ -80,6 +83,7 @@ public class NPCStartDialog : MonoBehaviour
                 }
             }
         }
+        Data.SaveConversationData();
     }
 
 
@@ -88,6 +92,7 @@ public class NPCStartDialog : MonoBehaviour
     private void LoadInformation()
     {
         // Set all bool parameters
+        Data.LoadConversationData();
         foreach (var boolData in Data.dataBoolList)
         {
             if (nPCConversation.ParameterList.Any(p => p.ParameterName == boolData.name))

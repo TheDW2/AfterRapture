@@ -31,13 +31,19 @@ public class GlobalVariableSystemWindow : EditorWindow
         var window = GetWindow<GlobalVariableSystemWindow>();
         window.titleContent = new GUIContent("GlobalVariableSystem");
         window.Show();
+        globalVariable.LoadConversationData();
         window.globalVariables = globalVariable;
+
     }
 
     private void OnGUI()
     {
         if (globalVariables != null)
         {
+            if (GUILayout.Button("SaveChanges"))
+            {
+                globalVariables.SaveConversationData();
+            }
             if (GUILayout.Button("SetParam"))
             {
                 SetBoolParameters();
@@ -53,6 +59,8 @@ public class GlobalVariableSystemWindow : EditorWindow
                 BuleanDataConversation newBoolParam = new BuleanDataConversation();
                 newBoolParam.name = newName;
                 globalVariables.globalParameterListBool.Add(newBoolParam);
+
+                globalVariables.SaveConversationData();
             }
             if (GUILayout.Button("Add int"))
             {
@@ -60,6 +68,8 @@ public class GlobalVariableSystemWindow : EditorWindow
                 IntDataConversation newIntParam = new IntDataConversation();
                 newIntParam.name = newName;
                 globalVariables.globalParameterListInt.Add(newIntParam);
+                
+                globalVariables.SaveConversationData();
             }
             GUILayout.EndHorizontal();
 
@@ -103,12 +113,16 @@ public class GlobalVariableSystemWindow : EditorWindow
                     {
                         // Remove from the boolean variables list
                         globalVariables.globalParameterListBool.RemoveAt(i);
+
+                        globalVariables.SaveConversationData();
                     }
                     else
                     {
                         // Remove from the integer variables list
                         int intIndex = i - globalVariables.globalParameterListBool.Count;
                         globalVariables.globalParameterListInt.RemoveAt(intIndex);
+                        
+                        globalVariables.SaveConversationData();
                     }
                     i--;
                 }
@@ -160,6 +174,7 @@ public class GlobalVariableSystemWindow : EditorWindow
 
     private void SetBoolParameters()
     {
+
         newlySelectedAsset = Selection.activeTransform;
         if (newlySelectedAsset == null)
         {
@@ -198,10 +213,13 @@ public class GlobalVariableSystemWindow : EditorWindow
                 }
             }
         }
+
+        globalVariables.SaveConversationData();
     }
 
     private void SetIntParameters()
     {
+
         newlySelectedAsset = Selection.activeTransform;
         if (newlySelectedAsset == null)
         {
@@ -233,5 +251,7 @@ public class GlobalVariableSystemWindow : EditorWindow
                 currentAsset.ParameterList.Add(new EditableIntParameter(globalParameter.name) { IntValue = globalParameter.value });
             }
         }
+
+        globalVariables.SaveConversationData();
     }
 }

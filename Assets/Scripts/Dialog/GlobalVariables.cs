@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "GlobalVariableSystem", menuName = "ConversationData/GlobalVariable")]
-public class GlobalVariables : ScriptableObject
+public class GlobalVariables : PersistentScriptableObject
 {
     public List<IntDataConversation> globalParameterListInt = new List<IntDataConversation>();
     public List<BuleanDataConversation> globalParameterListBool = new List<BuleanDataConversation>();

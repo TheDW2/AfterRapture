@@ -13,4 +13,5 @@ public class Player
    public Inventory _inventory;
    public CharacterProgression _characterPlayerProgression;
    public LocationProgression _locationProgression;
+   public bool _hasPastPrologue;
 }

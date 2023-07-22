@@ -6,8 +6,10 @@ using UnityEngine;
 
 public class NPCStartDialog : MonoBehaviour
 {
-    [SerializeField] private NPCConversation nPCConversation;
-    [SerializeField] private ConversationData Data;
+    [SerializeField] private Character _character;
+
+    private ConversationData Data;
+    private NPCConversation nPCConversation;
 
     private void OnMouseDown()
     {
@@ -15,9 +17,20 @@ public class NPCStartDialog : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                List<CharacterStory> _stories = _character._characterStory;
+                foreach(CharacterStory story in _stories)
+                {
+                    if(story._storyId == _character._lastStoryId)
+                    {
+                        nPCConversation = Instantiate(story._conversation).GetComponent<NPCConversation>();
+                        Data = story._storyParameter;
+                    }
+                }
+
                 ConversationManager.Instance.StartConversation(nPCConversation);
                 LoadInformation();
                 GameManager.Instance.LoadGlobalVariables(Data);
+               
             }
         }
     }
@@ -46,10 +59,24 @@ public class NPCStartDialog : MonoBehaviour
             }
             else if (param is EditableIntParameter intParameter)
             {
+                if(param.ParameterName == "_charRelationPoint")
+                {
+                    _character._playerRelationshipPoint += ConversationManager.Instance.GetInt(param.ParameterName);
+                }
+                
                 var existingParameter = Data.dataIntList.Find(p => p.name == param.ParameterName);
                 if (existingParameter != null)
                 {
-                    existingParameter.value = ConversationManager.Instance.GetInt(param.ParameterName);
+                    if(param.ParameterName == "_charRelationPoint")
+                    {
+                        existingParameter.value += ConversationManager.Instance.GetInt(param.ParameterName);
+                    }
+
+                    else
+                    {
+                        existingParameter.value = ConversationManager.Instance.GetInt(param.ParameterName);
+                    }
+                    
                 }
                 else
                 {
@@ -60,7 +87,38 @@ public class NPCStartDialog : MonoBehaviour
                 }
             }
         }
-    
+
+        List<CharacterStory> _stories = _character._characterStory;
+        foreach(CharacterStory story in _stories)
+        {
+            if(story._storyId == _character._lastStoryId)
+            {
+               story._finished = true;
+
+            }
+        }
+
+        _character._lastStoryId += 1;
+
+        if(!_character._hasMetPlayer) _character._hasMetPlayer = true;
+        SaveFile _saveFile = SaveHandler.instance.LoadSlot(PlayerPrefs.GetInt("current_slot_used"));
+        List<CharacterSave> _charSave = _saveFile._playerSave._characterPlayerProgression._characterProgressions;
+
+        foreach(CharacterSave _save in _charSave)
+        {
+            if(_save.id == _character._characterId)
+            {
+                _save._lastStoryId = _character._lastStoryId;
+                _save._playerRelationshipPoint = _character._playerRelationshipPoint;
+                _save._hasMetPlayer = _character._hasMetPlayer;
+            }
+        }
+
+        _saveFile._playerSave._characterPlayerProgression._characterProgressions = _charSave;
+
+        SaveHandler.instance.SaveSlot(_saveFile, PlayerPrefs.GetInt("current_slot_used"));
+
+
         GameManager.Instance.SaveGlobalVariables(Data);
         Data.SaveConversationData();
     }

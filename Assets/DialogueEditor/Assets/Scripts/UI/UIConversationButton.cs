@@ -38,6 +38,9 @@ namespace DialogueEditor
         private bool Hovering { get { return (m_hoverState == eHoverState.animatingOn || m_hoverState == eHoverState.animatingOff); } }
         private Vector3 BigSize { get { return Vector3.one * 1.2f; } }
 
+        // Audio
+        private FMOD.Studio.EventInstance continueEvent;
+        private FMOD.Studio.EventInstance hoverEvent;
 
         //--------------------------------------
         // MonoBehaviour
@@ -46,6 +49,8 @@ namespace DialogueEditor
         private void Awake()
         {
             m_rect = GetComponent<RectTransform>();
+            continueEvent = FMODUnity.RuntimeManager.CreateInstance("event:/UI/Continue");
+            hoverEvent = FMODUnity.RuntimeManager.CreateInstance("event:/UI/Hover");
         }
 
         private void Update()
@@ -62,6 +67,7 @@ namespace DialogueEditor
                 }
                 Vector3 size = Vector3.one;
                 float ease = EaseOutQuart(normalised);
+                
                 
 
                 switch (m_hoverState)
@@ -97,6 +103,7 @@ namespace DialogueEditor
             if (hovering)
             {
                 ConversationManager.Instance.AlertHover(this);
+                hoverEvent.start();
             }
             else
             {
@@ -109,6 +116,7 @@ namespace DialogueEditor
             if (!ConversationManager.Instance.AllowMouseInteraction) { return; }
 
             DoClickBehaviour();
+            continueEvent.start();
         }
 
         public void OnButtonPressed()

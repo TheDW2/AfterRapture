@@ -628,6 +628,8 @@ namespace DialogueEditor
         {
             DialoguePanel.gameObject.SetActive(true);
             OptionsPanel.gameObject.SetActive(true);
+            LeanTween.moveX(DialoguePanel, 0, 0.9f).setEase(LeanTweenType.easeOutBack);
+            LeanTween.moveX(OptionsPanel, 0, 0.9f).setEase(LeanTweenType.easeOutBack);
 
             if (BackgroundImage != null)
             {
@@ -640,6 +642,7 @@ namespace DialogueEditor
             }
 
             NpcIcon.sprite = BlankSprite;
+            LeanTween.moveY(NpcIcon.GetComponent<RectTransform>(), -181, 1.1f).setEase(LeanTweenType.easeOutBack);
         }
 
         private void TurnOffUI()

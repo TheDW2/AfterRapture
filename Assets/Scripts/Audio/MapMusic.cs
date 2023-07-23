@@ -10,10 +10,6 @@ public class MapMusic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (GameObject.Find("MusicController")  == null)
-        {
-            mapMusicController.SetActive(true);
-        }
 
         if (dayIndicatorIcon.GetComponent<Image>().sprite.name == "sun")
         {
@@ -23,6 +19,11 @@ public class MapMusic : MonoBehaviour
         if (dayIndicatorIcon.GetComponent<Image>().sprite.name == "moon")
         {
             FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Time of Day", 1);
+        }
+
+        if (GameObject.Find("MusicController") == null)
+        {
+            mapMusicController.SetActive(true);
         }
     }
 

@@ -43,6 +43,7 @@ public class EventHandler0 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _saveFile = SaveHandler.instance.LoadSlot(PlayerPrefs.GetInt("current_slot_used"));
         livingRoom.onClick.AddListener(LivingRoom);
         kitchen.onClick.AddListener(Kitchen);
         bedroom.onClick.AddListener(Bedroom);
@@ -119,6 +120,8 @@ public class EventHandler0 : MonoBehaviour
         
         if (_saveFile._playerSave._timeCycle == TimeCycle.Night){
             _saveFile._playerSave._timeCycle = TimeCycle.Day;
+            _saveFile._playerSave.dayCount += 1;
+            SaveHandler.instance.SaveSlot(_saveFile, PlayerPrefs.GetInt("current_slot_used"));
         } else {
             Debug.LogWarning("You cannot sleep during day");
         }

@@ -118,7 +118,7 @@ public class SaveSlot: MonoBehaviour
             hunger_bar = 1,
             energy_bar = 1,
             story_progress = 0,
-            _inventory = null,
+            _inventory = new Inventory(),
             _characterPlayerProgression = _charProg,
             _locationProgression = _locProg,
             _hasPastPrologue = false

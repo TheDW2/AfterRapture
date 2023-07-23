@@ -501,7 +501,11 @@ PrefabInstance:
     - target: {fileID: 5720326841391389798, guid: 70e503a2bf98f4efd89210f2d37c8e7e, type: 3}
       propertyPath: c
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 715808124}
+    - target: {fileID: 5720326841391389798, guid: 70e503a2bf98f4efd89210f2d37c8e7e, type: 3}
+      propertyPath: gameObjects
+      value: 
+      objectReference: {fileID: 1094993621}
     - target: {fileID: 7010258039116234263, guid: 70e503a2bf98f4efd89210f2d37c8e7e, type: 3}
       propertyPath: m_Value
       value: 1

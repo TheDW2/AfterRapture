@@ -19,6 +19,15 @@ public class InvManager : MonoBehaviour
     public static int amountOfSlotsStatic;
     public static int hotbarSizeStatic;
 
+    public static InvManager instance;
+
+    [SerializeField] private List<InvItems> _allInvItem;
+
+    void Awake()
+    {
+        instance = this;
+    }
+
     void Start() {
         inventory = new List<int>();
         for (int i = 0; i < amountOfSlots; i++) {
@@ -56,6 +65,7 @@ public class InvManager : MonoBehaviour
         for (int i = 0; i < amountOfSlotsStatic; i++) {
             if (inventory[i] == 0) {
                 inventory[i] = item;
+                InvManager.instance.SaveItemInventory();
                 return;
             }
         }
@@ -65,9 +75,41 @@ public class InvManager : MonoBehaviour
         for (int i = 0; i < amountOfSlotsStatic - hotbarSizeStatic; i++) {
             if (inventory[i + hotbarSizeStatic] == 0) {
                 inventory[i + hotbarSizeStatic] = item;
+                InvManager.instance.SaveItemInventory();
                 return;
             }
         }
+    }
+
+    private void SaveItemInventory()
+    {
+        SaveFile _saveFile = SaveHandler.instance.LoadSlot(PlayerPrefs.GetInt("current_slot_used"));
+        List<InventoryItem> _invItem = new List<InventoryItem>();
+        foreach(int inv in inventory)
+        {
+            if(inv != 0)
+            {
+                foreach(InvItems itm in InvManager.instance._allInvItem)
+                {
+                    if(itm.myTextureID == inv)
+                    {
+                        InventoryItem _item = new InventoryItem
+                        {
+                            id = inv,
+                            name = itm.GetItemName()
+                        };
+                        _invItem.Add(_item);
+                    }
+                }
+            }
+        }
+
+        Inventory _saveInv = new Inventory{
+            _inventoryItemList = _invItem
+        };
+
+        _saveFile._playerSave._inventory = _saveInv;
+        SaveHandler.instance.SaveSlot(_saveFile, PlayerPrefs.GetInt("current_slot_used"));
     }
 
     

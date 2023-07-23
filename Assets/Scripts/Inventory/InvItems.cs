@@ -19,8 +19,8 @@ public static class Last {
 public class InvItems : MonoBehaviour
 {
     //Script for slot items inside inventory
-    int myID;
-    int myTextureID;
+    public int myID;
+    public int myTextureID;
 
     bool hovering = false;
 
@@ -151,6 +151,11 @@ public class InvItems : MonoBehaviour
             hoveringID = 0;
         }
         hovering = false;
+    }
+
+    public string GetItemName()
+    {
+        return itemName;
     }
 
     

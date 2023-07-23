@@ -807,6 +807,7 @@ GameObject:
   - component: {fileID: 167419158}
   - component: {fileID: 167419157}
   - component: {fileID: 167419161}
+  - component: {fileID: 167419162}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -953,6 +954,19 @@ MonoBehaviour:
   _locationItem: {fileID: 1434358942203672502, guid: ce6321cc62c514cd392453aa4a07a392, type: 3}
   _actionItem: {fileID: 1250313851862384317, guid: 9e17bae457a8f4e7d9888d78dd8e65ef, type: 3}
   _characterPotrait: {fileID: 7635277097527996222, guid: 1feaa04766bc84219b38fb3b701030a4, type: 3}
+--- !u!114 &167419162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167419156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
 --- !u!1 &243757531
 GameObject:
   m_ObjectHideFlags: 0
@@ -3563,7 +3577,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963272394}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
   m_Name: 
@@ -3599,6 +3613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapMusicController: {fileID: 685911820}
+  dayIndicatorIcon: {fileID: 0}
 --- !u!1 &970431647
 GameObject:
   m_ObjectHideFlags: 0

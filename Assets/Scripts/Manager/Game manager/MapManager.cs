@@ -82,6 +82,8 @@ public class MapManager : MonoBehaviour
             case TimeCycle.Day:
             _dayNightImage.sprite = _daySprite;
 
+            
+
             for(int i=0; i< _locationList.Count;i++)
             {
                 if((_locationList[i]._locationTimeCycle == TimeCycle.Day || _locationList[i]._locationTimeCycle == TimeCycle.Both) && _locationList[i].unlocked )
@@ -98,6 +100,8 @@ public class MapManager : MonoBehaviour
 
             case TimeCycle.Night:
             _dayNightImage.sprite = _nightSprite;
+
+            
 
             for(int i=0; i< _locationList.Count;i++)
             {
